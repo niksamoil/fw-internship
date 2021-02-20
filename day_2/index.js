@@ -201,25 +201,26 @@ console.groupEnd();
 // Transformați data transmisă astfel incit fiecare poziție sa aibă 2 cifre.
 // 1, 1, 2021 => 01.01.21, 10, 10, 2021 => 10.10.21
 function displayDate(day, month, year) {
-  let finalDate = `${day}.${month}.${year}`;
+  const strYear = year.toString().slice(2);
+  let finalDate = `${day}.${month}.${strYear}`;
 
   if (day < 10 && month < 10) {
-    finalDate = `0${day}.0${month}.${year}`;
+    finalDate = `0${day}.0${month}.${strYear}`;
   }
   if (day > 10 && month < 10) {
-    finalDate = `${day}.0${month}.${year}`;
+    finalDate = `${day}.0${month}.${strYear}`;
   }
   if (day < 10 && month > 10) {
-    finalDate = `0${day}.${month}.${year}`;
+    finalDate = `0${day}.${month}.${strYear}`;
   }
 
   return finalDate;
 }
 console.group('Transformați data transmisă astfel incit fiecare poziție sa aibă 2 cifre.');
 console.log(displayDate(8, 2, 1993));
-console.log(displayDate(2, 20, 1900));
-console.log(displayDate(14, 4, 1900));
-console.log(displayDate(14, 12, 1900));
+console.log(displayDate(2, 20, 2021));
+console.log(displayDate(14, 4, 1894));
+console.log(displayDate(14, 12, 2099));
 console.groupEnd();
 
 // --------------------------------------------------------
