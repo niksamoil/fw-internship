@@ -94,8 +94,9 @@ function isEmptyObject(obj) {
 }
 
 console.group('Is object empthy?');
-console.log('const empthyObj = {}', isEmptyObject(empthyObj));
-console.log('number 5', isEmptyObject(5));
+console.log('const empthyObj = {}: ', isEmptyObject(empthyObj));
+console.log('number 5: ', isEmptyObject(5));
+console.log('boolean: ', isEmptyObject(true));
 console.groupEnd();
 
 // ---------------------------------------------------------------------
@@ -163,4 +164,33 @@ console.group('Common keys between objA and objB');
 console.log('A', a);
 console.log('B', b);
 console.log('common', intersections(a, b));
+console.groupEnd();
+
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+// any, obj by the path from the given obj
+const f = {
+  name: 'tommas',
+  details: {
+    age: 29,
+    height: 190,
+    parents: {
+      mother: 'Olea',
+      father: 'Mihail'
+    }
+  }
+};
+
+function getValueByPath(obj, path) {
+  const objPath = path.split('.');
+  let result = obj;
+
+  for (let i = 0; i < objPath.length; i++) {
+    result = result[objPath[i]];
+  }
+  return result;
+}
+
+console.group('Get value by path');
+console.log(getValueByPath(f, 'details.parents.mother'));
 console.groupEnd();
