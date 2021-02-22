@@ -175,8 +175,8 @@ const f = {
     age: 29,
     height: 190,
     parents: {
-      mother: 'Olea',
-      father: 'Mihail'
+      mother: 'Beth',
+      father: 'John'
     }
   }
 };
