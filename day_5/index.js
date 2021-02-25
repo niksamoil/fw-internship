@@ -11,7 +11,8 @@ const pTag = document.querySelector('p#info');
 
 getStarWarsPeople((res) => {
   console.log(res);
+  const people = res.results[0].name;
   const count = res.count;
 
-  pTag.innerHTML = count;
+  pTag.innerHTML = `People count: ${count} <br/> First person name: ${people}`;
 });
