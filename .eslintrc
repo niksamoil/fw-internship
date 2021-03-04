@@ -1,8 +1,9 @@
 {
     "extends": [
-      "@fusionworks/eslint-config"
+      "airbnb-base"
     ],
     "rules": {
-      "comma-dangle": ["error", "never"]
+      "comma-dangle": ["error", "never"],
+      "linebreak-style": ["error", "windows"]
     }
 }
