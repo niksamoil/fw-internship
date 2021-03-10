@@ -1,9 +1,7 @@
 {
-    "extends": [
-      "airbnb-base"
-    ],
-    "rules": {
-      "comma-dangle": ["error", "never"],
-      "linebreak-style": ["error", "windows"]
-    }
+  "extends": "airbnb-base",
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "linebreak-style": ["error", "windows"]
+  }
 }
