@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 /* eslint-disable no-cond-assign */
 /* eslint-disable no-console */
 // https://www.hackerrank.com/challenges/matching-specific-string/problem
