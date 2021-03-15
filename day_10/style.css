@@ -10,10 +10,7 @@
   justify-content: center;
 }
 .form {
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 100px;
 }
 
 .form-login, .form-password {
@@ -26,4 +23,15 @@
 .form-btn {
   width: 100px;
   height: 30px;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #237F28;
+  outline: none;
+  border: 1px solid #237F28;
+  transition-duration: .3s;
+}
+
+.form-btn:hover {
+  background-color: #237F28;
+  color: #fff;
 }
