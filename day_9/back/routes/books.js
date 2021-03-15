@@ -10,10 +10,6 @@ const books = require('../services/booksApi');
 
 router.use(express.json());
 router.use(express.urlencoded({ extended: false }));
-// const corsOptions = {
-//   origin: 'http://127.0.0.1:5500/',
-//   optionsSuccessStatus: 200
-// };
 
 router.use(cors());
 
@@ -22,14 +18,14 @@ router.get('/', (req, res, next) => {
   res.send(books).status(200).end();
 });
 
-router.post('/books', (req, res) => {
+router.post('/', (req, res) => {
   console.log('post', req.body);
   books.push(req.body);
 
   return res.send(req.body).status(200).end();
 });
 
-router.put('/books/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   if (!Number(req.params.id)) {
     return res
       .status(400)
@@ -54,8 +50,18 @@ router.put('/books/:id', (req, res) => {
   return res.send(body).status(200).end();
 });
 
+router.delete('/:id', (req, res) => {
+  const book = books.findIndex((_book) => _book.id === Number(req.params.id));
+  if (book === -1) {
+    return { status: 200, value: 'deleted : true' };
+  }
+  books.splice(book, 1);
+
+  return res.send({ deleted: true }).status(200).end();
+});
+
 app.listen(3001, () => {
-  console.log('CORS-enabled web server listening on port 3000');
+  console.log('CORS-enabled web server listening on port 3001');
 });
 
 module.exports = router;

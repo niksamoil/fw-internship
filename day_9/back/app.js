@@ -47,8 +47,4 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-// app.listen(3001, () => {
-//   console.log('CORS-enabled web server listening on port 3001');
-// });
-
 module.exports = app;
