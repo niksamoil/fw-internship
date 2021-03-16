@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <div class="container">
-        <form class="form">
-            <input type="text" name="" id="login" class="form-login">
-            <input type="password" name="" id="password" class="form-password">
-            <button type="submit" class="form-btn">Login</button>
-        </form>
+  <div class="container">
+    <form class="form">
+      <div class="login-wrapper">
+        <label for="login">Name </label>
+        <input type="text" name="" id="login" class="form-login">
+      </div>
+      <div class="password-wrapper">
+        <label for="password">Password</label>
+        <input type="password" name="" id="password" class="form-password">
+      </div>
+      <button type="submit" class="form-btn">Login</button>
+    </form>
+    <div class="chat">
+      <div class="chat__header">
+        <span class="chat__user-name">
+          
+        </span>
+      </div>
+      <div class="chat__messages">
+        <div class="chat__first-user">
+          <span class="chat__message chat__message_first">
+            my message is bigger
+          </span>
+        </div>
+        <!-- <div class="chat__second-user">
+          <span class="chat__message chat__message_second">
+            my message
+          </span>
+        </div> -->
+      </div>
+      <div class="chat__insert">
+        <input type="text" name="chat-form" id="chat-form" class="chat__input" placeholder="Write something...">
+        <button class="chat__btn">Send</button>
+      </div>
     </div>
-    <script src="../day_10/index.js" type="module"></script>
+  </div>
+  <script src="../day_10/index.js"></script>
 </body>
+
 </html>
