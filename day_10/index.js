@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const users = [];
-const messages = [];
+let enterCount = 0;
 
 const form = document.querySelector('.form');
 const nameInput = document.querySelector('.form-login');
@@ -11,8 +11,6 @@ const chatButton = document.querySelector('.chat__btn');
 const chatInput = document.querySelector('.chat__input');
 const chatMessages = document.querySelector('.chat__messages');
 const chatUserName = document.querySelector('.chat__user-name');
-const chatFirstUserMessage = document.querySelector('.first-user');
-const chatSecondUserMessage = document.querySelector('.chat__second-user');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -30,43 +28,51 @@ function addUser() {
   nameInput.value = '';
   passInput.value = '';
 
-  console.log(users);
-  for (let i = 0; i < users.length; i += 1) {
-    localStorage.setItem(`user-${i}`, JSON.stringify(users[i]));
+  localStorage.setItem('users', JSON.stringify(users));
 
-    const getUser = localStorage.getItem(`user-${i}`);
-    const parsedUser = JSON.parse(getUser);
+  const getUser = localStorage.getItem('users');
+  const parsedUser = JSON.parse(getUser);
 
-    chatUserName.innerHTML = parsedUser.name;
-  }
+  chatUserName.innerHTML = parsedUser[0].name;
 
   const { isLogged } = user;
   if (isLogged) {
     form.classList.toggle('d-hidden');
   }
+  enterCount += 1;
+  console.log(enterCount);
 }
 
 formButton.addEventListener('click', addUser);
 
+// localStorage.setItem('users', JSON.stringify(users));
+const getUser = localStorage.getItem('users');
+const parsedUser = JSON.parse(getUser);
+
+if (enterCount !== 0) {
+  chatUserName.innerHTML = parsedUser[0].name;
+}
+
 chatButton.addEventListener('click', () => {
-  // const msg = messages.push(chatInput.value);
+  const getUsr = localStorage.getItem('users');
+  const parsedUsr = JSON.parse(getUsr);
 
-  // localStorage.setItem('message', JSON.stringify(msg));
-
-  for (let i = 0; i < users.length; i += 1) {
-    users[i].message.push(chatInput.value);
-    localStorage.setItem(`user-${i}`, JSON.stringify(users[i]));
+  console.log(parsedUsr);
+  for (let i = 0; i < parsedUsr.length; i += 1) {
+    parsedUsr[i].message.push(chatInput.value);
+    localStorage.setItem('users', JSON.stringify(parsedUsr));
   }
 
-  const showMessage = localStorage.getItem('user-0');
+  console.log(parsedUsr);
+  const showMessage = localStorage.getItem('users');
   const parsedMessage = JSON.parse(showMessage);
 
   console.log(showMessage);
-  console.log(parsedMessage);
+  console.log(parsedMessage[0].message);
 
   chatMessages.innerHTML += `<div class="chat__second-user">
         <span class="chat__message chat__message_second">
-        ${parsedMessage.message[parsedMessage.message.length - 1]}
+        ${parsedMessage[0].message[parsedMessage[0].message.length - 1]}
         </span>
       </div>`;
 
